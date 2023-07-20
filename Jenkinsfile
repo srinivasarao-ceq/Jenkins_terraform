@@ -21,15 +21,21 @@ pipeline {
             }
         }
 
-        stage('Terraform Plan') {
-            steps {
-                 sh 'terraform plan -var-file="dev/terraform.tfvars"'
-            }
-        }
+        // stage('Terraform Plan') {
+        //     steps {
+        //          sh 'terraform plan -var-file="dev/terraform.tfvars"'
+        //     }
+        // }
 
-        stage('Terraform Apply') {
+        // stage('Terraform Apply') {
+        //     steps {
+        //         sh 'terraform apply -auto-approve -var-file="dev/terraform.tfvars"'
+        //     }
+        // }
+
+	stage('Terraform destroy') {
             steps {
-                sh 'terraform apply -auto-approve -var-file="dev/terraform.tfvars"'
+                sh 'terraform destroy -auto-approve '
             }
         }
 	   		
