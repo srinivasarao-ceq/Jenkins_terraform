@@ -1,8 +1,10 @@
 pipeline {
     agent any
-    
+   parameters {
+        string(name: 'REGION', defaultValue: 'eu-central-1', description: 'Select the region')
+    }
     environment {
-        AWS_DEFAULT_REGION = 'eu-central-1' // Set your desired AWS region
+        AWS_DEFAULT_REGION = ${params.PERSON} // Set your desired AWS region
         AWS_CONFIGURE = credentials('AWS-credentials')
     }
 
